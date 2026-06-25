@@ -261,6 +261,564 @@
             fill: #ffffff;
             text-anchor: middle
         }
+
+        /* ===== Terrain Config Panel ===== */
+        .terrain-config {
+            margin: 24px 0 16px;
+            padding: 18px 20px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .terrain-config h3 {
+            margin: 0 0 14px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+        }
+
+        .terrain-presets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .terrain-preset {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.15s, transform 0.15s;
+        }
+
+        .terrain-preset:hover {
+            background: rgba(74,144,226,0.35);
+            transform: translateY(-1px);
+        }
+
+        .terrain-preset.active {
+            background: linear-gradient(135deg, #4a90e2, #007bff);
+            border-color: #7fb3ff;
+            box-shadow: 0 0 10px rgba(74,144,226,0.5);
+        }
+
+        .terrain-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 12px 0;
+            font-size: 0.92rem;
+        }
+
+        .terrain-row > label {
+            flex: 0 0 150px;
+            opacity: 0.9;
+        }
+
+        .terrain-row input[type="range"] {
+            flex: 1;
+            margin: 0;
+            height: 6px;
+            accent-color: #4a90e2;
+        }
+
+        .terrain-row select,
+        .terrain-row input[type="number"] {
+            flex: 1;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            max-width: 220px;
+        }
+
+        .terrain-row select option {
+            background: #1a2235;
+        }
+
+        .terrain-val {
+            flex: 0 0 90px;
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+            opacity: 0.8;
+            font-size: 0.85rem;
+        }
+
+        .terrain-seed-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 12px 0;
+            font-size: 0.92rem;
+        }
+
+        .terrain-seed-row > label {
+            flex: 0 0 150px;
+        }
+
+        .terrain-seed-row input[type="number"] {
+            flex: 1;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .btn-randomize {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.15s;
+            white-space: nowrap;
+        }
+
+        .btn-randomize:hover {
+            background: rgba(74,144,226,0.4);
+        }
+
+        /* ===== Terrain Preview Panel ===== */
+        .terrain-preview-panel {
+            position: fixed;
+            top: 12px;
+            right: 12px;
+            width: 270px;
+            max-height: calc(100vh - 24px);
+            overflow-y: auto;
+            box-sizing: border-box;
+            background: rgba(10, 18, 30, 0.82);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255,255,255,0.13);
+            border-radius: 14px;
+            box-shadow: 0 8px 28px rgba(0,0,0,0.55);
+            padding: 14px 16px;
+            z-index: 10;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            user-select: none;
+        }
+
+        .terrain-preview-panel::-webkit-scrollbar { width: 6px; }
+        .terrain-preview-panel::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 3px; }
+
+        .pv-header { font-size: 1.05rem; font-weight: 600; margin-bottom: 12px; letter-spacing: 0.4px; }
+
+        .pv-group-title {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.5;
+            margin: 12px 0 6px;
+        }
+
+        .pv-presets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 4px;
+        }
+
+        .pv-preset {
+            background: rgba(255,255,255,0.09);
+            border: 1px solid rgba(255,255,255,0.18);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: background 0.15s, transform 0.12s;
+        }
+
+        .pv-preset:hover { background: rgba(74,144,226,0.32); transform: translateY(-1px); }
+
+        .pv-preset.active {
+            background: linear-gradient(135deg, #4a90e2, #007bff);
+            border-color: #7fb3ff;
+        }
+
+        .pv-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 9px 0;
+            font-size: 0.8rem;
+        }
+
+        .pv-row > label { flex: 0 0 100px; opacity: 0.88; }
+
+        .pv-row input[type="range"] {
+            flex: 1;
+            margin: 0;
+            height: 4px;
+            accent-color: #4a90e2;
+        }
+
+        .pv-val { flex: 0 0 60px; text-align: right; font-size: 0.75rem; opacity: 0.8; font-variant-numeric: tabular-nums; }
+
+        .pv-row select {
+            flex: 1;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.18);
+            color: #fff;
+            padding: 5px 7px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+        }
+
+        .pv-row select option { background: #1a2235; }
+
+        .pv-seed-row {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            margin: 9px 0;
+            font-size: 0.8rem;
+        }
+
+        .pv-seed-row > label { flex: 0 0 45px; opacity: 0.88; }
+
+        .pv-seed-row input[type="number"] {
+            flex: 1;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.18);
+            color: #fff;
+            padding: 5px 8px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+        }
+
+        .pv-rand-btn {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.18);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            transition: background 0.15s;
+        }
+
+        .pv-rand-btn:hover { background: rgba(74,144,226,0.35); }
+
+        .pv-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 14px 0; }
+
+        .pv-start-btn {
+            display: block;
+            width: 100%;
+            padding: 11px;
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+
+        .pv-start-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(46,204,113,0.45);
+        }
+
+        .pv-biome-btn {
+            display: block;
+            width: 100%;
+            padding: 9px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.88rem;
+            cursor: pointer;
+            transition: background 0.15s;
+            margin-bottom: 10px;
+        }
+
+        .pv-biome-btn:hover    { background: rgba(74,144,226,0.30); }
+        .pv-biome-btn.active   { background: rgba(74,144,226,0.55); border-color: #7fb3ff; }
+
+        .pv-legend {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 10px;
+            font-size: 0.78rem;
+        }
+
+        .pv-legend.visible { display: flex; }
+
+        .pv-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pv-swatch {
+            width: 18px;
+            height: 14px;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        /* ===== Custom Tool Palette ===== */
+        .tool-panel {
+            position: fixed;
+            top: 70px;
+            left: 12px;
+            width: 234px;
+            max-height: calc(100vh - 90px);
+            overflow-y: auto;
+            box-sizing: border-box;
+            background: rgba(10, 18, 30, 0.72);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 14px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+            padding: 12px;
+            z-index: 5;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.3;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .tool-panel::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .tool-panel::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+
+        .tp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            margin-bottom: 6px;
+        }
+
+        .tp-header h2 {
+            margin: 0;
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .tp-collapse {
+            font-size: 1rem;
+            opacity: 0.7;
+            transition: transform 0.2s ease;
+        }
+
+        .tool-panel.collapsed .tp-body {
+            display: none;
+        }
+
+        .tool-panel.collapsed .tp-collapse {
+            transform: rotate(-90deg);
+        }
+
+        .tp-group-title {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.55;
+            margin: 12px 0 6px;
+        }
+
+        .tp-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+        }
+
+        .tp-tool {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            padding: 7px 2px 5px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid transparent;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .tp-tool:hover {
+            background: rgba(74, 144, 226, 0.28);
+            transform: translateY(-1px);
+        }
+
+        .tp-tool.active {
+            background: linear-gradient(135deg, #4a90e2, #007bff);
+            border-color: #7fb3ff;
+            box-shadow: 0 0 10px rgba(74, 144, 226, 0.65);
+        }
+
+        .tp-tool .tp-icon {
+            font-size: 1.3rem;
+            line-height: 1;
+        }
+
+        .tp-tool .tp-name {
+            font-size: 0.6rem;
+            text-align: center;
+            opacity: 0.9;
+        }
+
+        .tp-tool .tp-key {
+            position: absolute;
+            top: 2px;
+            right: 4px;
+            font-size: 0.52rem;
+            opacity: 0.5;
+        }
+
+        .tp-section {
+            margin-top: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 10px;
+        }
+
+        .tp-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 10px 0;
+            font-size: 0.8rem;
+            gap: 8px;
+        }
+
+        .tp-row > label {
+            flex: 0 0 auto;
+            opacity: 0.9;
+        }
+
+        .tp-row input[type="range"] {
+            flex: 1 1 auto;
+            min-width: 0;
+            margin: 0;
+            height: 4px;
+            accent-color: #4a90e2;
+        }
+
+        .tp-row .tp-val {
+            flex: 0 0 42px;
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+            opacity: 0.95;
+        }
+
+        /* biome picker (Land tool) */
+        .tp-biome-grid {
+            display: flex;
+            gap: 6px;
+            flex: 1 1 auto;
+            justify-content: flex-end;
+        }
+
+        .tp-biome,
+        .tp-wind {
+            width: 34px;
+            height: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 7px;
+            background: rgba(255, 255, 255, 0.05);
+            font-size: 1.05rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.12s;
+            padding: 0;
+        }
+
+        .tp-biome:hover,
+        .tp-wind:hover {
+            background: rgba(255, 255, 255, 0.14);
+        }
+
+        .tp-biome.active,
+        .tp-wind.active {
+            border-color: #4a90e2;
+            background: rgba(74, 144, 226, 0.32);
+            box-shadow: 0 0 6px rgba(74, 144, 226, 0.5);
+        }
+
+        /* toggle switch */
+        .tp-switch {
+            position: relative;
+            display: inline-block;
+            width: 38px;
+            height: 20px;
+            flex: 0 0 auto;
+        }
+
+        .tp-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .tp-slider {
+            position: absolute;
+            cursor: pointer;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            transition: background 0.2s ease;
+        }
+
+        .tp-slider::before {
+            content: "";
+            position: absolute;
+            height: 14px;
+            width: 14px;
+            left: 3px;
+            top: 3px;
+            background: #fff;
+            border-radius: 50%;
+            transition: transform 0.2s ease;
+        }
+
+        .tp-switch input:checked + .tp-slider {
+            background: #4a90e2;
+        }
+
+        .tp-switch input:checked + .tp-slider::before {
+            transform: translateX(18px);
+        }
+
+        .tp-hint {
+            font-size: 0.66rem;
+            opacity: 0.5;
+            margin-top: 8px;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -350,8 +908,74 @@
                             12000 m are not optimized and may be buggy!</i></td>
                 </tr>
             </table>
-            <input type="button" value="Create New Simulation" onclick="loadData ()" />
-            <i>Move the mouse until you see a terrain you like, then just click to start.</i>
+            <div class="terrain-config">
+                <h3>Terrain Settings</h3>
+
+                <div class="terrain-presets">
+                    <button type="button" class="terrain-preset" onclick="setTerrainPreset('ocean',this)">🌊 Ocean</button>
+                    <button type="button" class="terrain-preset" onclick="setTerrainPreset('flat',this)">🌾 Flat</button>
+                    <button type="button" class="terrain-preset" onclick="setTerrainPreset('hills',this)">🌄 Hills</button>
+                    <button type="button" class="terrain-preset active" onclick="setTerrainPreset('mountains',this)">⛰️ Mountains</button>
+                    <button type="button" class="terrain-preset" onclick="setTerrainPreset('alpine',this)">🏔️ Alpine</button>
+                </div>
+
+                <div class="terrain-row">
+                    <label>Max Height</label>
+                    <input type="range" id="terrainHeight" min="0.05" max="2.0" step="0.05" value="0.7"
+                           oninput="updateTerrainDisplay()">
+                    <span class="terrain-val" id="terrainHeightVal">~4 200 m</span>
+                </div>
+
+                <div class="terrain-row">
+                    <label>Mountain Chance</label>
+                    <input type="range" id="terrainMountainChance" min="-0.3" max="0.3" step="0.01" value="0.0"
+                           oninput="updateTerrainDisplay()">
+                    <span class="terrain-val" id="terrainChanceVal">Balanced</span>
+                </div>
+
+                <div class="terrain-row">
+                    <label>🏜️ Desert %</label>
+                    <input type="range" id="itrBiomeDesert" min="0" max="100" value="20"
+                           oninput="itrNormalizeBiomes('itrBiomeDesert')">
+                    <span class="terrain-val" id="itrBiomeDesertVal">20%</span>
+                </div>
+                <div class="terrain-row">
+                    <label>🌿 Plains %</label>
+                    <input type="range" id="itrBiomePlains" min="0" max="100" value="35"
+                           oninput="itrNormalizeBiomes('itrBiomePlains')">
+                    <span class="terrain-val" id="itrBiomePlainsVal">35%</span>
+                </div>
+                <div class="terrain-row">
+                    <label>⛰️ Mountain %</label>
+                    <input type="range" id="itrBiomeMountain" min="0" max="100" value="25"
+                           oninput="itrNormalizeBiomes('itrBiomeMountain')">
+                    <span class="terrain-val" id="itrBiomeMountainVal">25%</span>
+                </div>
+                <div class="terrain-row">
+                    <label>🌊 Ocean %</label>
+                    <input type="range" id="itrBiomeOcean" min="0" max="100" value="20"
+                           oninput="itrNormalizeBiomes('itrBiomeOcean')">
+                    <span class="terrain-val" id="itrBiomeOceanVal">20%</span>
+                </div>
+
+                <div class="terrain-row">
+                    <label>Mountain Scale</label>
+                    <select id="terrainMountainScale" onchange="updateTerrainDisplay()">
+                        <option value="0.001">Dense Hills</option>
+                        <option value="0.0006">Medium</option>
+                        <option value="0.0003" selected>Large Ranges</option>
+                        <option value="0.00015">Massive Chains</option>
+                    </select>
+                </div>
+
+                <div class="terrain-seed-row">
+                    <label>Seed</label>
+                    <input type="number" id="terrainSeed" min="0" max="9999" value="4242">
+                    <button type="button" class="btn-randomize" onclick="randomizeSeed()">🎲 Randomize</button>
+                </div>
+            </div>
+
+            <input type="button" value="Create New Simulation" onclick="loadData()" />
         </form>
 
 
@@ -410,9 +1034,10 @@
             <h3>Mouse</h3>
             <ul>
                 <li>Middle mouse button to drag the simulation area around</li>
-                <li>Mouse wheel to zoom in and out, Or to change brush size while holding down B</li>
-                <li>Left mouse button to use selected tool. Hold down Ctrl (command on mac) to perform the inverted
-                    action</li>
+                <li>Mouse wheel to zoom. Hold Ctrl + scroll to change brush size, Shift + scroll to
+                    stretch the brush horizontally</li>
+                <li>Left mouse button to use selected tool. Right mouse button performs the inverted action
+                    (eraser)</li>
                 <li>Touchscreen input is pretty basic for now, will add more controls in the future</li>
             </ul>
             <h3>Keys</h3>
@@ -430,12 +1055,16 @@
                     <td>Relative Humidity & Cloud Density Display</td>
                 </tr>
                 <tr>
-                    <td>QWERTYUIOP [ ] \</td>
-                    <td>Tools</td>
+                    <td>QWERTYUIOPJ [ ] \</td>
+                    <td>Tools (J = Saturate ground)</td>
                 </tr>
                 <tr>
-                    <td>Left Ctrl</td>
-                    <td>Invert Tool Action</td>
+                    <td>Ctrl + Scroll</td>
+                    <td>Change Brush Size</td>
+                </tr>
+                <tr>
+                    <td>Shift + Scroll</td>
+                    <td>Stretch Brush Width</td>
                 </tr>
                 <tr>
                     <td>Esc</td>
@@ -518,10 +1147,6 @@
                     <td>Reset View</td>
                 </tr>
                 <tr>
-                    <td>B</td>
-                    <td>Hold To Change Brush Size By Scrolling</td>
-                </tr>
-                <tr>
                     <td>B x 2</td>
                     <td>Toggle Whole Width Brush</td>
                 </tr>
@@ -563,6 +1188,218 @@
     </div>
 
     </div>
+
+    <div id="terrainPreviewPanel" class="terrain-preview-panel" style="display:none">
+        <div class="pv-header">⛰️ Terrain Settings</div>
+
+        <div class="pv-group-title">Preset</div>
+        <div class="pv-presets">
+            <button type="button" class="pv-preset" onclick="pvSetPreset('ocean',this)">🌊 Ocean</button>
+            <button type="button" class="pv-preset" onclick="pvSetPreset('flat',this)">🌾 Flat</button>
+            <button type="button" class="pv-preset" onclick="pvSetPreset('hills',this)">🌄 Hills</button>
+            <button type="button" class="pv-preset active" onclick="pvSetPreset('mountains',this)">⛰️ Mountains</button>
+            <button type="button" class="pv-preset" onclick="pvSetPreset('alpine',this)">🏔️ Alpine</button>
+        </div>
+
+        <div class="pv-group-title">Properties</div>
+
+        <div class="pv-row" title="Tallest possible terrain elevation. Higher = taller mountains and deeper valleys.">
+            <label>Max Height</label>
+            <input type="range" id="pvTerrainHeight" min="0.05" max="2.0" step="0.05" value="0.7"
+                   oninput="pvUpdateDisplay()">
+            <span class="pv-val" id="pvHeightVal">~4 200 m</span>
+        </div>
+
+        <div class="pv-row" title="Shifts terrain up or down. Lower values flood more land into sea; higher values raise more mountains.">
+            <label>Mtn Chance</label>
+            <input type="range" id="pvTerrainMountainChance" min="-0.3" max="0.3" step="0.01" value="0.0"
+                   oninput="pvUpdateDisplay()">
+            <span class="pv-val" id="pvChanceVal">Balanced</span>
+        </div>
+
+        <div class="pv-row" title="Width of terrain features. Dense = many small hills; Massive = a few huge mountain ranges.">
+            <label>Scale</label>
+            <select id="pvTerrainMountainScale">
+                <option value="0.001">Dense</option>
+                <option value="0.0006">Medium</option>
+                <option value="0.0003" selected>Large</option>
+                <option value="0.00015">Massive</option>
+            </select>
+        </div>
+
+        <div class="pv-seed-row" title="Random seed. Same seed = same terrain every time. Change it for a different world.">
+            <label>Seed</label>
+            <input type="number" id="pvTerrainSeed" min="0" max="9999" value="4242">
+            <button type="button" class="pv-rand-btn" onclick="pvRandomizeSeed()">🎲 New</button>
+        </div>
+
+        <hr class="pv-divider">
+
+        <div class="pv-group-title">Biome Distribution</div>
+
+        <div class="pv-row" title="Share of the map that is dry desert. Sliders auto-balance to keep the total at 100%.">
+            <label>🏜️ Desert</label>
+            <input type="range" id="pvBiomeDesert" min="0" max="100" value="20"
+                   oninput="pvNormalizeBiomes('pvBiomeDesert')">
+            <span class="pv-val" id="pvBiomeDesertVal">20%</span>
+        </div>
+        <div class="pv-row" title="Share of the map that is grassy plains. Sliders auto-balance to keep the total at 100%.">
+            <label>🌿 Plains</label>
+            <input type="range" id="pvBiomePlains" min="0" max="100" value="35"
+                   oninput="pvNormalizeBiomes('pvBiomePlains')">
+            <span class="pv-val" id="pvBiomePlainsVal">35%</span>
+        </div>
+        <div class="pv-row" title="Share of the map that is mountainous. Sliders auto-balance to keep the total at 100%.">
+            <label>⛰️ Mountain</label>
+            <input type="range" id="pvBiomeMountain" min="0" max="100" value="25"
+                   oninput="pvNormalizeBiomes('pvBiomeMountain')">
+            <span class="pv-val" id="pvBiomeMountainVal">25%</span>
+        </div>
+        <div class="pv-row" title="Share of the map that is open ocean. Sliders auto-balance to keep the total at 100%.">
+            <label>🌊 Ocean</label>
+            <input type="range" id="pvBiomeOcean" min="0" max="100" value="20"
+                   oninput="pvNormalizeBiomes('pvBiomeOcean')">
+            <span class="pv-val" id="pvBiomeOceanVal">20%</span>
+        </div>
+
+        <div class="pv-row" title="How wide each biome region is. Small = many alternating biomes; Huge = large continents of one biome.">
+            <label>Zone Size</label>
+            <select id="pvBiomeZoneSize" style="flex:1">
+                <option value="0.0006">Small</option>
+                <option value="0.0003">Medium</option>
+                <option value="0.00015" selected>Large</option>
+                <option value="0.00007">Huge</option>
+            </select>
+        </div>
+
+        <hr class="pv-divider">
+
+        <button type="button" id="pvBiomeBtn" class="pv-biome-btn"
+                title="Toggle a colored map preview showing where each biome will be placed."
+                onclick="pvToggleBiomeView(this)">🗺️ Biome View</button>
+
+        <div id="pvLegend" class="pv-legend">
+            <div class="pv-legend-item"><div class="pv-swatch" style="background:#0e378a"></div>Ocean</div>
+            <div class="pv-legend-item"><div class="pv-swatch" style="background:#389e2e"></div>Plains</div>
+            <div class="pv-legend-item"><div class="pv-swatch" style="background:#7a6349"></div>Mountain</div>
+            <div class="pv-legend-item"><div class="pv-swatch" style="background:#debf5c"></div>Desert / Sand</div>
+            <div class="pv-legend-item"><div class="pv-swatch" style="background:#1a6b20"></div>Mountain Forest</div>
+            <div class="pv-legend-item"><div class="pv-swatch" style="background:#edf3ff"></div>Snow</div>
+        </div>
+
+        <button type="button" class="pv-start-btn" title="Generate this terrain and begin the weather simulation."
+                onclick="startSimulationFn && startSimulationFn()">▶ Start Simulation</button>
+    </div>
+
+    <script>
+      var terrainPresets = {
+        ocean:     { height: 0.05, chance: -0.25, scale: '0.0003', biomes: [5,  15, 5,  75] },
+        flat:      { height: 0.08, chance:  0.20, scale: '0.0006', biomes: [5,  70, 5,  20] },
+        hills:     { height: 0.35, chance:  0.05, scale: '0.001',  biomes: [10, 35, 35, 20] },
+        mountains: { height: 0.70, chance:  0.00, scale: '0.0003', biomes: [20, 35, 25, 20] },
+        alpine:    { height: 1.40, chance: -0.05, scale: '0.0003', biomes: [10, 25, 55, 10] },
+      };
+
+      // Generic auto-normalize: changing one biome slider scales the others proportionally
+      function normalizeBiomeGroup(allIds, changedId) {
+        var changedVal = Math.min(97, Math.max(0, parseFloat(document.getElementById(changedId).value) || 0));
+        document.getElementById(changedId).value = changedVal;
+        var others = allIds.filter(function(id) { return id !== changedId; });
+        var otherSum = others.reduce(function(s, id) { return s + (parseFloat(document.getElementById(id).value) || 0); }, 0);
+        var remaining = 100 - changedVal;
+        if (otherSum <= 0) {
+          others.forEach(function(id) { document.getElementById(id).value = Math.round(remaining / others.length); });
+        } else {
+          others.forEach(function(id) {
+            document.getElementById(id).value = Math.round((parseFloat(document.getElementById(id).value) || 0) / otherSum * remaining);
+          });
+        }
+      }
+
+      var pvBiomeIds  = ['pvBiomeDesert','pvBiomePlains','pvBiomeMountain','pvBiomeOcean'];
+      var itrBiomeIds = ['itrBiomeDesert','itrBiomePlains','itrBiomeMountain','itrBiomeOcean'];
+
+      function pvNormalizeBiomes(changedId)  { normalizeBiomeGroup(pvBiomeIds,  changedId); pvUpdateDisplay(); }
+      function itrNormalizeBiomes(changedId) { normalizeBiomeGroup(itrBiomeIds, changedId); updateTerrainDisplay(); }
+
+      function setBiomeSliders(ids, vals) {
+        ids.forEach(function(id, i) { document.getElementById(id).value = vals[i]; });
+      }
+
+      function updateBiomeLabels(ids, labelSuffix) {
+        ['Desert','Plains','Mountain','Ocean'].forEach(function(name, i) {
+          var el = document.getElementById(ids[i] + 'Val');
+          if (el) el.textContent = Math.round(parseFloat(document.getElementById(ids[i]).value)) + '%';
+        });
+      }
+
+      function setTerrainPreset(type, btn) {
+        var p = terrainPresets[type];
+        document.getElementById('terrainHeight').value = p.height;
+        document.getElementById('terrainMountainChance').value = p.chance;
+        document.getElementById('terrainMountainScale').value = p.scale;
+        setBiomeSliders(itrBiomeIds, p.biomes);
+        document.querySelectorAll('.terrain-preset').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        updateTerrainDisplay();
+      }
+
+      function randomizeSeed() {
+        document.getElementById('terrainSeed').value = Math.floor(Math.random() * 10000);
+      }
+
+      function updateTerrainDisplay() {
+        var h = parseFloat(document.getElementById('terrainHeight').value);
+        document.getElementById('terrainHeightVal').textContent = '~' + Math.round(h * 6000).toLocaleString() + ' m';
+        var c = parseFloat(document.getElementById('terrainMountainChance').value);
+        var label = c < -0.15 ? 'Mostly ocean' : c < -0.05 ? 'More ocean' : c < 0.05 ? 'Balanced' : c < 0.15 ? 'More land' : 'Mostly land';
+        document.getElementById('terrainChanceVal').textContent = label;
+        updateBiomeLabels(itrBiomeIds);
+      }
+
+      updateTerrainDisplay();
+
+      function pvSetPreset(type, btn) {
+        var p = terrainPresets[type];
+        document.getElementById('pvTerrainHeight').value = p.height;
+        document.getElementById('pvTerrainMountainChance').value = p.chance;
+        document.getElementById('pvTerrainMountainScale').value = p.scale;
+        setBiomeSliders(pvBiomeIds, p.biomes);
+        document.querySelectorAll('.pv-preset').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        pvUpdateDisplay();
+      }
+
+      function pvRandomizeSeed() {
+        document.getElementById('pvTerrainSeed').value = Math.floor(Math.random() * 10000);
+      }
+
+      function pvUpdateDisplay() {
+        var h = parseFloat(document.getElementById('pvTerrainHeight').value);
+        document.getElementById('pvHeightVal').textContent = '~' + Math.round(h * 6000).toLocaleString() + ' m';
+        var c = parseFloat(document.getElementById('pvTerrainMountainChance').value);
+        var label = c < -0.15 ? 'Mostly sea' : c < -0.05 ? 'More sea' : c < 0.05 ? 'Balanced' : c < 0.15 ? 'More land' : 'Mostly land';
+        document.getElementById('pvChanceVal').textContent = label;
+        updateBiomeLabels(pvBiomeIds);
+      }
+
+      function initPreviewPanel() {
+        document.getElementById('pvTerrainHeight').value = document.getElementById('terrainHeight').value;
+        document.getElementById('pvTerrainMountainChance').value = document.getElementById('terrainMountainChance').value;
+        document.getElementById('pvTerrainMountainScale').value = document.getElementById('terrainMountainScale').value;
+        document.getElementById('pvTerrainSeed').value = document.getElementById('terrainSeed').value;
+        pvBiomeIds.forEach(function(id, i) { document.getElementById(id).value = document.getElementById(itrBiomeIds[i]).value; });
+        pvUpdateDisplay();
+      }
+
+      function pvToggleBiomeView(btn) {
+        if (typeof toggleBiomeView === 'function') toggleBiomeView();
+        btn.classList.toggle('active');
+        document.getElementById('pvLegend').classList.toggle('visible');
+      }
+    </script>
+
+    <div id="toolPanel" class="tool-panel" style="display: none;"></div>
 
     <canvas id="graphCanvas"></canvas>
     <canvas id="dropletInfoCanvas" width="90" height="50"
